@@ -1,42 +1,33 @@
+### 📁 Jenkinsfile explicativo
 pipeline {
-    agent any
-    environment {
-        NODE_VERSION = '18'
+  agent any
+
+  stages {
+    stage('Checkout') {
+      steps {
+        // Clonar repositorio desde GitHub
+        git 'https://github.com/tamybl/task-manager.git'
+      }
     }
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-        stage('Build') {
-            steps {
-                echo "Instalando dependencias..."
-                bat 'npm install'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo "Ejecutando pruebas..."
-                bat 'npm test'
-            }
-        }
-        // Se omite la etapa de Deploy para no arrancar el servidor en Jenkins.
-        /*
-        stage('Deploy') {
-            steps {
-                echo "Desplegando aplicación..."
-                bat 'npm start'
-            }
-        }
-        */
+
+    stage('Install dependencies') {
+      steps {
+        // Instalar dependencias con npm
+        sh 'npm install'
+      }
     }
-    post {
-        success {
-            echo "✅ Pipeline completado con éxito"
-        }
-        failure {
-            echo "❌ El pipeline ha fallado"
-        }
+
+    stage('Run tests') {
+      steps {
+        // Ejecutar pruebas automatizadas
+        sh 'npm test'
+      }
     }
-}
+ stage('Build Docker image') {
+      steps {
+        // Crear imagen Docker
+        sh 'docker build -t task-api .'
+      }
+    }
+  }
+}    
