@@ -1,32 +1,39 @@
 pipeline {
-  agent any
-
-  stages {
-    stage('Checkout') {
-      steps {
-        // Clonar repositorio desde GitHub
-        git 'https://github.com/tamybl/task-manager.git'
-      }
+    agent any
+    environment {
+        NODE_VERSION = '18'
     }
-
-    stage('Install dependencies') {
-      steps {
-        // Instalar dependencias con npm
-        bat 'npm install'
-      }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                echo "Instalando dependencias..."
+                bat 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Ejecutando pruebas..."
+                bat 'npm test'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                echo "Construyendo imagen Docker..."
+                bat 'docker build -t mi-app:latest .'
+            }
+        }
     }
-
-    stage('Run tests') {
-      steps {
-        // Ejecutar pruebas automatizadas
-        bat 'npm test'
-      }
+    post {
+        success {
+            echo "✅ Pipeline completado con éxito"
+        }
+        failure {
+            echo "❌ El pipeline ha fallado"
+        }
     }
- stage('Build Docker image') {
-      steps {
-        // Crear imagen Docker
-        bat 'docker build -t task-api .'
-      }
-    }
-  }
-}    
+}
