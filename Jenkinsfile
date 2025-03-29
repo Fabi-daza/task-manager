@@ -12,20 +12,20 @@ pipeline {
     stage('Install dependencies') {
       steps {
         // Instalar dependencias con npm
-        sh 'npm install'
+        bat 'npm install'
       }
     }
 
     stage('Run tests') {
       steps {
         // Ejecutar pruebas automatizadas
-        sh 'npm test'
+        bat 'npm test'
       }
     }
  stage('Build Docker image') {
       steps {
         // Crear imagen Docker
-        sh 'docker build -t task-api .'
+        bat 'docker build -t task-api .'
       }
     }
   }
