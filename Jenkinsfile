@@ -1,4 +1,3 @@
-### 📁 Jenkinsfile explicativo
 pipeline {
   agent any
 
