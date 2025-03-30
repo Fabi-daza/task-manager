@@ -29,7 +29,7 @@ Este proyecto es una API REST simple construida con **Node.js**, diseñada para 
    git clone https://github.com/SHuan004/DesafioSGT.git
    cd DesafioSGT
    ```
-   
+
 2. Instalar dependencias: `npm install`  
 
 3. Inicializar el servidor `npm start`
@@ -42,15 +42,15 @@ Este proyecto es una API REST simple construida con **Node.js**, diseñada para 
 
 ## Estructura del proyecto
 
-DesafioSGT/
-├── Dockerfile
-├── Jenkinsfile
-├── package.json
-├── Resultados/
-├── src/
-│   └── app.js
-├── test/
-│   ├── routes/
-│   └── app.js
-├── README.md
-└── REPORT.md
+DesafioSGT/  
+├── Dockerfile  
+├── Jenkinsfile  
+├── package.json  
+├── Resultados/  
+├── src/  
+│   └── app.js  
+├── test/  
+│   ├── routes/  
+│   └── app.js  
+├── README.md  
+└── REPORT.md  
