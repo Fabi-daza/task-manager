@@ -34,13 +34,13 @@ Este proyecto es una API REST simple construida con **Node.js**, diseñada para 
 
 3. Inicializar el servidor `npm start`
 
-## Ejecutar con Docker
+## 🐳 Ejecutar con Docker
 
 1. Construye la imagen del contenedor: `docker build -t task-api .`  
 
 2. Ejecuta el contenedor: `docker run -p 3000:3000 task-api`
 
-## Estructura del proyecto
+## 📂 Estructura del proyecto
 
 DesafioSGT/  
 ├── Dockerfile  
@@ -54,3 +54,10 @@ DesafioSGT/
 │   └── app.js  
 ├── README.md  
 └── REPORT.md  
+
+## 👩‍💻 / 👨‍💻 Equipo
+
+- Sebastian
+- Carlos Romero
+- Sergio
+- Tamara Bravo
