@@ -61,3 +61,4 @@ DesafioSGT/
 - Carlos Romero
 - Sergio
 - Tamara Bravo
+- Fabian Daza
